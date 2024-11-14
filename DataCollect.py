@@ -15,7 +15,7 @@ headers = {
 connection = sqlite3.connect('DataLol.db')
 cursor = connection.cursor()
 
-print(f"LA DATABASE : {connection.total_changes}")
+# print(f"LA DATABASE : {connection.total_changes}")
 
 
 
@@ -53,6 +53,11 @@ def getTimeLine(match):
     timeline = requests.get(url_timeline, headers=headers).json()
     print(f"Voici la timeline du match : {timeline}")
     return timeline
+
+
+
+
+
 
 joueurs = [
     {
