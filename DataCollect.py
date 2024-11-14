@@ -1,14 +1,26 @@
 import requests
+import sqlite3
 import json
 import pandas as pd
 
 # Clé d'API Riot (voir pour la mettre a jour en auto)
-api_key = "RGAP1-Sd3d2736-b268-4443-8bfe-a4ee8166f6eO"
-
+api_key = "RGAPI-Sd3d2736-b268-4443-8bfe-a4ee8166f6eO"
 
 headers = {
     'X-Riot-Token': api_key
 }
+
+
+# Connexion à la DB
+connection = sqlite3.connect('DataLol.db')
+cursor = connection.cursor()
+
+print(f"LA DATABASE : {connection.total_changes}")
+
+
+
+
+
 
 # Info des joueurs
 gameName = "CapitaineFyTrOz"
@@ -41,3 +53,18 @@ def getTimeLine(match):
     timeline = requests.get(url_timeline, headers=headers).json()
     print(f"Voici la timeline du match : {timeline}")
     return timeline
+
+joueurs = [
+    {
+        "pseudo": "Florian",
+        "role": ["Jungle", "Mid"],
+        "gameName": "CapitaineFyTrOz",
+        "tagLine": "COACH"
+    },
+    {
+        "pseudo": "Phyphy",
+        "role": ["Mid", "ADC"],
+        "gameName": "Phyrma",
+        "tagLine": "FRAUD"
+    }
+]
