@@ -1,7 +1,8 @@
 import requests
-import sqlite3
 import json
 import pandas as pd
+import psycopg
+from database import *
 
 # Clé d'API Riot (voir pour la mettre a jour en auto)
 api_key = "RGAPI-Sd3d2736-b268-4443-8bfe-a4ee8166f6eO"
@@ -11,11 +12,7 @@ headers = {
 }
 
 
-# Connexion à la DB
-connection = sqlite3.connect('DataLol.db')
-cursor = connection.cursor()
-
-# print(f"LA DATABASE : {connection.total_changes}")
+LectureJsonPlayer()
 
 
 
